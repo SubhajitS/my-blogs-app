@@ -1,0 +1,9 @@
+{
+  "sitecore": {
+    "instancePath": "",
+    "apiKey": "{FD8B88B8-1579-41FA-982A-0E8FD7150972}",
+    "deploySecret": "srhlvgkwqrec61he4h961pglaj9m5i9jt79pgelq02",
+    "deployUrl": "https://sccm.dev.local/sitecore/api/jss/import",
+    "layoutServiceHost": "https://sccm.dev.local"
+  }
+}
