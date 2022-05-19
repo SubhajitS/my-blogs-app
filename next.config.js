@@ -91,7 +91,9 @@ const nextConfig = {
     applyGraphQLCodeGenerationLoaders(config, options);
 
     config.resolve.fallback = {
-      'sitecore/manifest/sitecore-import.json': false
+      'sitecore/manifest/sitecore-import.json': false,
+      'https': require.resolve('https-browserify'),
+      'http': require.resolve('stream-http')
     };
 
     return config;

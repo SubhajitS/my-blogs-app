@@ -10,6 +10,12 @@ import NProgress from 'nprogress';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'nprogress/nprogress.css';
 import 'assets/app.css';
+// import axios from 'axios';
+// import https from 'https';
+
+// axios.defaults.httpAgent = new https.Agent({
+//   rejectUnauthorized: false,
+// });
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
