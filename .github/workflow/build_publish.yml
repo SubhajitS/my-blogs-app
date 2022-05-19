@@ -26,4 +26,8 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
+    - run: |
+        find .next -type f -name "*.html"
+        cp --parents `find .next -type f -name "*.html"` /out/
+        ls
     
