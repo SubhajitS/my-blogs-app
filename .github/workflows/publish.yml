@@ -22,7 +22,7 @@ jobs:
         sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
     - run: npm run build
     - run: |
-        find .next -type f -name "*.html"
-        cp --parents `find .next -type f -name "*.html"` /out/
+        mkdir export
+        cp --parents `find .next -type f -name "*.html"` /export/
         ls
     
