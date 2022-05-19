@@ -17,6 +17,9 @@ jobs:
         node-version: 14.18.1
         cache: 'npm'
     - run: npm ci
+    - name: Setup host file
+      run: |
+        sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
     - run: npm run build
     - run: |
         find .next -type f -name "*.html"
