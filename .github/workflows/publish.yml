@@ -12,7 +12,6 @@ jobs:
     env:
       CONTAINER_NAME: $web
       
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js 14.18.1
@@ -20,10 +19,15 @@ jobs:
       with:
         node-version: 14.18.1
         cache: 'npm'
-    - run: npm ci
+    - name: Install dependencies
+      run: npm ci
     - name: Setup host file
       run: |
         sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
-    - run: npm run export:production
-    - run: |
-        ls -a out
+    - name: Build and Export
+      run: npm run export:production
+    - name: Upload to storage account
+      uses: Azure/cli@v1
+      with:
+        inlineScript: |
+          az storage blob upload-batch --connection-string ${{ secrets.STORAGE_CONNECTION_STRING }} -d ${{ env.CONTAINER_NAME }} -s out/
