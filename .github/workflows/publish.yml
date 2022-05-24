@@ -26,4 +26,4 @@ jobs:
         sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
     - run: npm run export:production
     - run: |
-        ls -a
+        ls -a out
