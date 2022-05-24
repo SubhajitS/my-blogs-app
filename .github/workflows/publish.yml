@@ -11,6 +11,7 @@ jobs:
     
     env:
       CONTAINER_NAME: $web
+      
 
     steps:
     - uses: actions/checkout@v3
@@ -24,9 +25,5 @@ jobs:
       run: |
         sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
     - run: npm run export:production
-    - name: Azure Blob Storage Upload
-      uses: bacongobbler/azure-blob-storage-upload@v1.1.1
-      with:
-        connection_string: ${{ secrets.STORAGE_CONNECTION_STRING }}
-        container_name: $CONTAINER_NAME 
-        source_dir: /out
+    - run: |
+        ls /out
