@@ -1,3 +1,6 @@
-# Sitecore JSS Next.js Starter Application
+# Next.JS app to demo JAMStack
 
-Consult the primary JSS documentation at https://jss.sitecore.com for the latest documentation on JSS.
+Please use follwing commands 
+- Build the app `npm run build`
+- Start the app `npm run start:production`
+- Export the app `npm run export:production`
