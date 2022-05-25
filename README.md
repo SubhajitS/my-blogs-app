@@ -5,4 +5,4 @@ Please use follwing commands
 - Start the app `npm run start:production`
 - Export the app `npm run export:production`
 
-## Running app -> [My Blogs App](https://generatedpagestore.z10.web.core.windows.net/graphql)
+## Running app -> [My Blogs App](https://generatedpagestore.z10.web.core.windows.net)
