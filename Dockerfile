@@ -3,16 +3,12 @@ WORKDIR /usr/src
 
 COPY ./ /usr/src/
 RUN npm ci
-RUN apk add --no-cache sudo
-RUN sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
 RUN npm run build
 
 FROM node:14.18.1-alpine as runner
 EXPOSE 3000
 WORKDIR /nextjs
 ENV NODE_ENV production
-RUN apk add --no-cache sudo
-RUN sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
 
 COPY --from=builder /usr/src/public/ /nextjs/public
 COPY --from=builder /usr/src/.next/  /nextjs/.next
