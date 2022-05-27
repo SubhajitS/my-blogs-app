@@ -3,6 +3,7 @@ WORKDIR /usr/src
 
 COPY ./ /usr/src/
 RUN npm ci
+RUN sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
 RUN npm run build
 
 FROM node:14.18.1-alpine as runner
