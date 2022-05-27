@@ -34,7 +34,7 @@ jobs:
           az storage blob upload-batch --connection-string '${{ secrets.STORAGE_CONNECTION_STRING }}' -d '${{ env.CONTAINER_NAME }}' -s out/ --overwrite true
           
     - name: Create docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+      run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}" --add-host=sccm.dev.local:20.187.121.32
     - name: Log in to registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
     - name: Push image
