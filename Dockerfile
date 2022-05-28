@@ -9,12 +9,12 @@ FROM node:14.18.1-alpine as runner
 EXPOSE 3000
 WORKDIR /nextjs
 ENV NODE_ENV production
-RUN apk add --no-cache sudo
-RUN sudo echo "20.187.121.32 sccm.dev.local" | sudo tee -a /etc/hosts
 
 COPY --from=builder /usr/src/public/ /nextjs/public
 COPY --from=builder /usr/src/.next/  /nextjs/.next
 COPY --from=builder /usr/src/node_modules /nextjs/node_modules
 COPY --from=builder /usr/src/package.json /nextjs/package.json
+COPY --from=builder /usr/src/entrypoint.sh /nextjs/entrypoint.sh
 
-ENTRYPOINT ["npm", "run", "next:start"]
+RUN ["chmod", "+x", "entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
