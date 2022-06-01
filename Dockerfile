@@ -15,4 +15,5 @@ COPY --from=builder /usr/src/.next/  /nextjs/.next
 COPY --from=builder /usr/src/node_modules /nextjs/node_modules
 COPY --from=builder /usr/src/package.json /nextjs/package.json
 
+CMD echo "20.187.121.32 sccm.dev.local" >> /etc/hosts
 ENTRYPOINT ["npm", "run", "next:start"]
